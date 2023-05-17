@@ -67,7 +67,6 @@ export default function Home({ esFeeds }) {
   const [selectedFeed, setSelectedFeed] = useState(null);
   const [searchText, setSearchText] = useState(null);
   const [data, setData] = useState(esFeeds);
-  console.log("Initiate Data : ", data)
   const handleOpen = (feed) => {
     setShowModal(true);
     setSelectedFeed(feed)
@@ -78,7 +77,6 @@ export default function Home({ esFeeds }) {
   };
   const handleSearch = () => {
     let filterText = searchText;
-    console.log("text : ", filterText)
     let filteredData = [];
     if (filterText == null || filterText == undefined) {
       setData(esFeeds);
@@ -102,7 +100,6 @@ export default function Home({ esFeeds }) {
       <TextField id='search' label='Search' variant="outlined" placeholder="Search"
         value={searchText}
         onChange={(v) => {
-          console.log(v)
           setSearchText(v.target.value)
         }}
       />
@@ -181,7 +178,6 @@ export async function getStaticProps() {
       description: feed.description
     })
   });
-  // console.log("results", blogData);
   return {
     props: {
       esFeeds: blogData,
